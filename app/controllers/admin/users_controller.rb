@@ -2,6 +2,7 @@ class Admin::UsersController < Admin::BaseController
   layout "admin"
   authorize_resource
   before_action :load_user, only: %i(update destroy)
+  before_action :set_admin_or_user, only: :update
 
   def index
     @search = User.ransack params[:q]
@@ -29,21 +30,15 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
-    if @user.admin?
-      @user.user!
-      flash[:success] = t "controller.user.setuser"
-      redirect_to request.referrer
-    elsif @user.user?
-      @user.admin!
-      flash[:success] = t "controller.user.setadmin"
-      redirect_to request.referrer
+    if @user.save
+      respond_to do |format|
+        format.html{ redirect_to request.referrer }
+        format.js
+      end
     else
       flash[:danger] = t "controller.user.nofound"
       redirect_to request.referrer
     end
-  rescue Exception
-    flash[:notice] = t "controller.user.errors"
-    redirect_to request.referrer
   end
 
   def destroy
@@ -68,5 +63,9 @@ class Admin::UsersController < Admin::BaseController
     return if @user
     flash[:danger] = t "controller.user.find_user_error"
     redirect_to admin_root_path
+  end
+
+  def set_admin_or_user
+    @user.role = @user.admin? ? :user : :admin
   end
 end
