@@ -1,7 +1,7 @@
-User.create!(name:  "Le Quoc Cuong",
-             email: "lqcuong.qt@gmail.com",
-             password: "CTP971204",
-             password_confirmation: "CTP971204",
+User.create!(name:  "Nguyen Van Luc",
+             email: "boss@gmail.com",
+             password: "111111",
+             password_confirmation: "111111",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)

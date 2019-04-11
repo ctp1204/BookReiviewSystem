@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :search_book
   protect_from_forgery with: :exception
+  before_action :set_locale
   include PublicActivity::StoreController
   include SessionsHelper
   include BooksHelper
@@ -19,6 +20,11 @@ class ApplicationController < ActionController::Base
     added_attrs = [:name, :address, :picture]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+    Rails.application.routes.default_url_options[:locale]= I18n.locale
   end
 
   def search_book

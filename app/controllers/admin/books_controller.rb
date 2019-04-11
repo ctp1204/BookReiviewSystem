@@ -10,6 +10,8 @@ class Admin::BooksController < Admin::BaseController
       params[:page], per_page: Settings.per_page
   end
 
+  def statistical; end
+
   def new
     @book = Book.new
   end
@@ -18,8 +20,8 @@ class Admin::BooksController < Admin::BaseController
     @book = Book.new book_params
     @suggest.accepted! if @suggest
     if @book.save
-      redirect_to admin_books_path
       flash[:success] = t "controller.book.create_book"
+      redirect_to admin_books_path
     else
       render :new
     end
@@ -31,7 +33,7 @@ class Admin::BooksController < Admin::BaseController
   def edit; end
 
   def update
-    if @book.update(book_params)
+    if @book.update_attributes(book_params)
       flash[:success] = t "controller.book.update_book"
       redirect_to admin_books_path
     else

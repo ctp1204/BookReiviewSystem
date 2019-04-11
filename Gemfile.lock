@@ -82,6 +82,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (3.0.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.1)
@@ -166,6 +167,8 @@ GEM
     icomoon-rails (0.1.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    impressionist (1.6.1)
+      nokogiri (~> 1)
     io-like (0.3.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
@@ -396,6 +399,7 @@ DEPENDENCIES
   cancancan
   capybara (>= 2.15)
   carrierwave (= 1.2.2)
+  chartkick
   chromedriver-helper
   coffee-rails (~> 4.2)
   config
@@ -406,6 +410,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass (~> 4.2.0)
   icomoon-rails
+  impressionist (~> 1.6, >= 1.6.1)
   jbuilder (~> 2.5)
   jquery-gmap3-rails
   jquery-rails (~> 4.0, >= 4.0.5)

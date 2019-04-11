@@ -27,60 +27,27 @@
   </div>
   <div class="tg-widget tg-widgettrending">
     <div class="tg-widgettitle">
-      <h3>Trending Products</h3>
+      <h3>Latest Books</h3>
     </div>
     <div class="tg-widgetcontent">
       <ul>
-        <li>
-          <article class="tg-post">
-            <figure><a href="javascript:void(0);">
-              <%= link_to image_tag("products/img-04.jpg", alt: "image description") %>
-
-            </a></figure>
-            <div class="tg-postcontent">
-              <div class="tg-posttitle">
-                <h3><a href="javascript:void(0);">Where The Wild Things Are</a></h3>
-              </div>
-              <span class="tg-bookwriter">By: <a href="javascript:void(0);">Kathrine Culbertson</a></span>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="tg-post">
-            <figure><a href="javascript:void(0);">
-              <%= link_to image_tag("products/img-05.jpg", alt: "image description") %>
-
+        <% load_book_new.each do |book_new| %>
+          <li>
+            <article class="tg-post-1">
+              <figure><a href="javascript:void(0);">
+                <div class="img_book_new">
+                  <%= image_tag book_new.book_img.url(:book_index), class: "books-1" %>
+                <div class="tg-frontcover">
               </a></figure>
-            <div class="tg-postcontent">
-              <div class="tg-posttitle">
-                <h3><a href="javascript:void(0);">Where The Wild Things Are</a></h3>
+              <div class="tg-postcontent">
+                <div class="tg-posttitle">
+                  <h3><a href="/books/<%= book_new.id %>?category=<%= book_new.category.id %>"><%= book_new.title %></a></h3>
+                </div>
+                <span class="tg-bookwriter">By:<%= book_new.publisher %></span>
               </div>
-              <span class="tg-bookwriter">By: <a href="javascript:void(0);">Kathrine Culbertson</a></span>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="tg-post">
-            <figure><a href="javascript:void(0);"><%= link_to image_tag("products/img-06.jpg", alt: "image description") %></a></figure>
-            <div class="tg-postcontent">
-              <div class="tg-posttitle">
-                <h3><a href="javascript:void(0);">Where The Wild Things Are</a></h3>
-              </div>
-              <span class="tg-bookwriter">By: <a href="javascript:void(0);">Kathrine Culbertson</a></span>
-            </div>
-          </article>
-        </li>
-        <li>
-          <article class="tg-post">
-            <figure><a href="javascript:void(0);"><%= link_to image_tag("products/img-07.jpg", alt: "image description") %></a></figure>
-            <div class="tg-postcontent">
-              <div class="tg-posttitle">
-                <h3><a href="javascript:void(0);">Where The Wild Things Are</a></h3>
-              </div>
-              <span class="tg-bookwriter">By: <a href="javascript:void(0);">Kathrine Culbertson</a></span>
-            </div>
-          </article>
-        </li>
+            </article>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -150,50 +117,16 @@
   </div>
   <div class="tg-widget tg-widgetblogers">
     <div class="tg-widgettitle">
-      <h3>Top Bloogers</h3>
+      <h3>Authors</h3>
     </div>
     <div class="tg-widgetcontent">
-      <ul>
+      <ol>
+        <% load_author.each do |author| %>
         <li>
-          <div class="tg-author">
-            <figure><a href="javascript:void(0);">
-              <%= link_to image_tag("author/imag-03.jpg", alt: "image description") %>
-
-            </a></figure>
-            <div class="tg-authorcontent">
-              <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
-              <span>21,658 Published Books</span>
-            </div>
-          </div>
+          <h5><a href="javascript:void(0);"><%= author.author %></a></h5>
         </li>
-        <li>
-          <div class="tg-author">
-            <figure><a href="javascript:void(0);"><%= link_to image_tag("author/imag-04.jpg", alt: "image description") %></a></figure>
-            <div class="tg-authorcontent">
-              <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
-              <span>21,658 Published Books</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="tg-author">
-            <figure><a href="javascript:void(0);"><%= link_to image_tag("author/imag-05.jpg", alt: "image description") %></a></figure>
-            <div class="tg-authorcontent">
-              <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
-              <span>21,658 Published Books</span>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="tg-author">
-            <figure><a href="javascript:void(0);"><%= link_to image_tag("author/imag-06.jpg", alt: "image description") %></a></figure>
-            <div class="tg-authorcontent">
-              <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
-              <span>21,658 Published Books</span>
-            </div>
-          </div>
-        </li>
-      </ul>
+        <% end %>
+      </ol>
     </div>
   </div>
 </aside>

@@ -20,7 +20,7 @@
                     <div class="tg-featureditmcontent">
                       <div class="tg-themetagbox"><span class="tg-themetag">featured</span></div>
                       <div class="tg-booktitle">
-                        <h3><a href="javascript:void(0);">Things To Know About Green Flat Design</a></h3>
+                        <h3><a href="javascript:void(0);"><%= t "thing" %></a></h3>
                       </div>
                       <span class="tg-bookwriter">By: <a href="javascript:void(0);">Farrah Whisenhunt</a></span>
                       <span class="tg-stars"><span></span></span>
@@ -52,36 +52,39 @@
                     <div class="tg-booktitle">
                       <h3><%= @book.title %></h3>
                     </div>
-                    <span class="tg-bookwriter"><%= t "view.books.show.author" %>
-                      <%= @book.author %>
-                    </span>
-                    <span class="tg-bookwriter"><%= t "view.books.show.by" %>
-                      <%= @book.publisher %>
-                    </span>
-                    <span class="tg-bookwriter"><%= t "view.books.show.published_on" %>
-                      <%= I18n.localize @book.created_at, format: :long %>
-                    </span>
-                    <h4><%= t "view.books.show.avg_rating" %> </h4>
-                    <div class="average_review-rating" data-score="<%= @book.rate_points %>">
-                    </div>
-                    <span>
-                    <div class="like-unlike">
-                      <div class="count_like_<%= @book.id %> fa fa-thumbs-up fa-2x count_like">
-                        <i><b><%= @book.likes.count %></b></i>
+                    <div class="info_book">
+                      <span class="tg-bookwriter"><%= t "view.books.show.author" %>
+                        <%= @book.author %>
+                      </span>
+                      <span class="tg-bookwriter"><%= t "view.books.show.by" %>
+                        <%= @book.publisher %>
+                      </span>
+                      <span class="tg-bookwriter"><%= t "view.books.show.published_on" %>
+                        <%= I18n.localize @book.created_at, format: :long %>
+                      </span>
+                      <div class="interactive">
+                        <div class="view">
+                            |  <i class="fas fa-eye">  <%= @book.impressionist_count %></i> |
+                          <i class="fas fa-comments">  <%= @book.reviews.count %></i> |
+                          <div class="count_like_<%= @book.id %> fas fa-thumbs-up">  <%= @book.likes.count %></div>
+                          <div class="average_review-rating" data-score="<%= @book.rate_points %>"></div>
+                        </div>
                       </div>
-                      <div class="like_<%= @book.id %>">
-                        <% if user_signed_in? %>
-                          <%= render partial: "likes/like", local:{book: @book} %>
-                        <% end %>
-                      </div>
+
                     </div>
+                    <% if user_signed_in? %>
+                      <div class="like-unlike">
+                        <div class="like_<%= @book.id %>">
+                            <%= render partial: "likes/like", local:{book: @book} %>
+                        </div>
+                      </div>
+                    <% end %>
                     <div class="button-shared">
                       <%= social_share_button_tag(@book.title) %>
                     </div>
-                    <div><%= t "view.books.show.base" %>
-                      <%= t("count_review", count: @book.reviews.size) %>
+                    <div class="description">
+                      <%= @book.description %>
                     </div>
-                    </span>
                   </div>
                 </div>
                 <div class="tg-productdescription">
@@ -99,7 +102,8 @@
                     <div class="tg-tab-content tab-content">
                       <div role="tabpanel" class="tg-tab-pane tab-pane" id="description">
                         <div class="tg-description">
-                          <p><%= @book.content %></p>
+                          <h6><%= @book.description %></h6>
+                          <%= raw @book.content %>
                         </div>
                       </div>
                       <div role="tabpanel" class="tg-tab-pane tab-pane active" id="review">

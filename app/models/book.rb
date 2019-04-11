@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
   acts_as_paranoid
+  is_impressionable
   belongs_to :category
   has_many :marks, dependent: :destroy
   has_many :reviews, dependent: :destroy

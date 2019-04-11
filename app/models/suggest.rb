@@ -1,4 +1,5 @@
 class Suggest < ApplicationRecord
+  include PublicActivity::Common
   belongs_to :user
 
   validates :title, presence: true

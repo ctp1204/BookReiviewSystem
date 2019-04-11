@@ -2,6 +2,6 @@
   <%= simple_form_for [@book, @review], remote: true do |f| %>
     <div id="rating-form"><label><%= t "view.review.rate" %></label></div>
     <%= f.input :content %>
-    <%= f.button :submit, class: "btn-custom2" %>
+    <%= f.button :submit, Review, class: "btn-custom2" %>
   <% end %>
 </div>

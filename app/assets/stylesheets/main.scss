@@ -45,8 +45,8 @@ h6 a { color: #484848;}
 p a,
 p a:hover { text-decoration:underline; }
 p {
-	margin: 0 0 20px;
-	line-height: 20px;
+  margin: 0 0 10px;
+  line-height: 15px;
 	letter-spacing: normal;
 }
 a { text-decoration: none; }
@@ -291,7 +291,7 @@ address { font-style: italic; }
 	width:100%;
 	float:left;
 }
-.tg-sectionspace {padding: 100px 0;}
+.tg-sectionspace {padding: 40px 0;}
 .tg-locationmap {
 	width: 100%;
 	float: left;
@@ -724,7 +724,7 @@ body.tg-comingsoonpage .tg-wrapper{overflow:visible;}
 	color: #666;
 	padding: 10px 0;
 	font-size: 14px;
-	line-height: 30px;
+	line-height: 40px;
 	list-style: none;
 }
 .tg-addnav li {
@@ -3532,7 +3532,7 @@ blockquote .tg-bookwriter{
 	vertical-align:bottom;
 }
 .tg-productdetail .tg-postbookcontent{padding: 15px 0 0 0;}
-.tg-productdetail .tg-postbookcontent .tg-bookwriter{padding:0 0 30px 20px;}
+.tg-productdetail .tg-postbookcontent .tg-bookwriter{}
 .tg-delevrystock{
 	width:100%;
 	float:left;

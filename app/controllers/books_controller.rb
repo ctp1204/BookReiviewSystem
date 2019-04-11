@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   before_action :load_book, :build_like, :build_review, only: %i(show)
   before_action :book_by_category, except: %i(index)
   before_action :book_by_like, only: %i(searchlike)
+  impressionist :actions=>[:show,:index]
 
   def index
     @books = Book.newest
@@ -11,6 +12,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    impressionist(@book)
     @reviews = @book.reviews.newest_review.paginate page: params[:page],
       per_page: Settings.controllers.book.index_page
     return unless @reviews

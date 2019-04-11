@@ -6,4 +6,12 @@ module BooksHelper
   def load_categories
     Category.sort_by_name
   end
+
+  def load_author
+    Book.select(:author).distinct.newest
+  end
+
+  def load_book_new
+    Book.newest.limit 3
+  end
 end

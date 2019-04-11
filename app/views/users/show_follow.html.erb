@@ -15,7 +15,11 @@
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>
-            <%= link_to gravatar_for(user, size: Settings.view.users.size_follow), user %>
+            <% if user.image %>
+              <%= image_tag(user.image)%>
+            <% else %>
+              <%= image_tag user.picture.url if user.picture? %>
+            <% end %>
           <% end %>
         </div>
       <% end %>

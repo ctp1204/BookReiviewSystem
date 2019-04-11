@@ -27,9 +27,9 @@ controllers:
     index_page: 3
   user:
     index_page: 5
-    index_page_admin: 6
+    index_page_admin: 5
 models:
-  limit: 4
+  limit: 8
 controller:
   sessions: "1"
 view:

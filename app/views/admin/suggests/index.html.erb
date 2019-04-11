@@ -1,6 +1,5 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
-    <h2><%= t "view.suggests.index.suggest" %></h2>
+  <div>
+    <h2><%= t "admin.suggests.suggest" %></h2>
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="table-responsive">
@@ -8,12 +7,12 @@
         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
             <tr>
-              <th><%= t "view.suggests.index.id" %></th>
-              <th class="name"><%= t "view.suggests.index.title" %></th>
-              <th><%= t "view.suggests.index.category" %></th>
-              <th><%= t "view.suggests.index.username" %></th>
-              <th class="action"><%= t "view.suggests.index.status" %></th>
-              <th class="action"><%= t "view.suggests.index.action" %></th>
+              <th class="id"><%= t "admin.suggests.id" %></th>
+              <th class="name"><%= t "admin.suggests.name_book" %></th>
+              <th class="category"><%= t "admin.suggests.name_category" %></th>
+              <th class="username"><%= t "admin.suggests.user_name" %></th>
+              <th class="status"><%= t "admin.suggests.status" %></th>
+              <th class="action-suggests"><%= t "admin.suggests.action" %></th>
             </tr>
           </thead>
           <tbody>
@@ -21,8 +20,11 @@
           </tbody>
         </table>
           <%= will_paginate @suggests %>
+        <%= pie_chart Suggest.joins(:user).group(:name).count,
+          title: t("statistics_user"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+        <%= pie_chart Suggest.joins(:user).group(:status).count,
+          title: t("statistics_status"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
         </div>
       </div>
     </div>
   </div>
-</div>

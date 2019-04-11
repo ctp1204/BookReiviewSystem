@@ -3,11 +3,11 @@
    prompt: "select a category" %>
   <%= f.file_field :book_img %>
   <%= f.input :title, label:  t(".book_title") %>
-  <%= f.input :content %>
-  <%= f.input :description %>
-  <%= f.input :author %>
-  <%= f.input :publisher %>
-  <%= f.input :rate_points %>
-  <%= f.input :number_pages %>
+  <%= f.input :description, label:  t(".description") %>
+  <%= f.input :content, label:  t(".content") %>
+  <%= f.input :author, label:  t(".author") %>
+  <%= f.input :publisher, label:  t(".publisher") %>
+  <%= f.input :rate_points, label:  t(".rate_points") %>
+  <%= f.input :number_pages, label:  t(".number_pages") %>
   <%= f.submit yield(:button_text), class: "btn btn-success btn-md" %>
 <% end %>

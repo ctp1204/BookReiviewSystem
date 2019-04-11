@@ -2,7 +2,6 @@ class Admin::UsersController < Admin::BaseController
   layout "admin"
   authorize_resource
   before_action :load_user, only: %i(update destroy)
-  before_action :set_admin_or_user, only: :update
 
   def index
     @search = User.ransack params[:q]
@@ -14,6 +13,8 @@ class Admin::UsersController < Admin::BaseController
       format.xls {send_data @users.to_csv(col_sep: "\t")}
     end
   end
+
+  def show; end
 
   def new
     @user = User.new
@@ -30,6 +31,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def update
+    @user.role = @user.admin? ? User.roles[:user] : User.roles[:admin]
     if @user.save
       respond_to do |format|
         format.html{ redirect_to request.referrer }
@@ -63,9 +65,5 @@ class Admin::UsersController < Admin::BaseController
     return if @user
     flash[:danger] = t "controller.user.find_user_error"
     redirect_to admin_root_path
-  end
-
-  def set_admin_or_user
-    @user.role = @user.admin? ? :user : :admin
   end
 end
