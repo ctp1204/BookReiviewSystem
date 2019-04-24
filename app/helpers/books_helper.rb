@@ -12,6 +12,6 @@ module BooksHelper
   end
 
   def load_book_new
-    Book.newest.limit 3
+    Book.newest.limit 5
   end
 end

@@ -7,10 +7,11 @@ class Admin::UsersController < Admin::BaseController
     @search = User.ransack params[:q]
     @users = @search.result.sort_by_created_at.paginate page: params[:page],
       per_page: Settings.controllers.user.index_page_admin
+    @users_all = User.sort_by_created_at.all
     respond_to do |format|
       format.html
-      format.csv {send_data @users.to_csv}
-      format.xls {send_data @users.to_csv(col_sep: "\t")}
+      format.csv {send_data @users_all.to_csv}
+      format.xls {send_data @users_all.to_csv(col_sep: "\t")}
     end
   end
 

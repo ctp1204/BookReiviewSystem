@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :suggests
 
   namespace :admin do
+    mount Ckeditor::Engine => '/ckeditor'
     root "static_pages#index"
     resources :books, except: :show
     resources :categories, except: [:edit, :show]

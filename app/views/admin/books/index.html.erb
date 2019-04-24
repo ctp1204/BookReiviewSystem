@@ -25,11 +25,18 @@
             </tbody>
           </table>
           <%= will_paginate @books %>
-          <%= pie_chart Book.joins(:likes).group(:title).count,
-            title: t("statistics_like"),download: "like_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
-
-          <%= pie_chart Book.joins(:reviews).group(:title).count,
-            title: t("statistics_review"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+          <% if Book.joins(:likes).any? && Book.joins(:reviews).any? %>
+            <%= pie_chart Book.joins(:likes).group(:title).count,
+              title: t("statistics_like"),download: "like_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+            <%= pie_chart Book.joins(:reviews).group(:title).count,
+              title: t("statistics_review"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+          <% elsif Book.joins(:reviews).any? %>
+            <%= pie_chart Book.joins(:reviews).group(:title).count,
+              title: t("statistics_review"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+          <% elsif Book.joins(:likes).any? %>
+            <%= pie_chart Book.joins(:likes).group(:title).count,
+              title: t("statistics_like"),download: "like_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+          <% end %>
         </div>
       </div>
     </div>

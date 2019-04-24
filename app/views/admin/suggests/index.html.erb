@@ -20,10 +20,12 @@
           </tbody>
         </table>
           <%= will_paginate @suggests %>
-        <%= pie_chart Suggest.joins(:user).group(:name).count,
-          title: t("statistics_user"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
-        <%= pie_chart Suggest.joins(:user).group(:status).count,
-          title: t("statistics_status"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+        <% if Suggest.any? %>
+          <%= pie_chart Suggest.joins(:user).group(:name).count,
+            title: t("statistics_user"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+          <%= pie_chart Suggest.joins(:user).group(:status).count,
+            title: t("statistics_status"),download: "review_book", library: {animation: {easing: 'easeOutQuad'}, elements: {arc: {borderWidth: 1}}} %>
+        <% end %>
         </div>
       </div>
     </div>

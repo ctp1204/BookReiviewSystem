@@ -5,4 +5,5 @@ class Category < ApplicationRecord
   validates :name, presence: true
 
   scope :sort_by_name, ->{order :name}
+  scope :newest, ->{order created_at: :desc}
 end

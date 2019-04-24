@@ -3,8 +3,8 @@
    prompt: "select a category" %>
   <%= f.file_field :book_img %>
   <%= f.input :title, label:  t(".book_title") %>
-  <%= f.input :description, label:  t(".description") %>
-  <%= f.input :content, label:  t(".content") %>
+  <%= f.input :description, label:  t(".description"), as: :ckeditor %>
+  <%= f.input :content, label:  t(".content"), as: :ckeditor %>
   <%= f.input :author, label:  t(".author") %>
   <%= f.input :publisher, label:  t(".publisher") %>
   <%= f.input :rate_points, label:  t(".rate_points") %>

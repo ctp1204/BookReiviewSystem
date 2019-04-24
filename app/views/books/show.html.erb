@@ -70,20 +70,21 @@
                           <div class="average_review-rating" data-score="<%= @book.rate_points %>"></div>
                         </div>
                       </div>
-
                     </div>
-                    <% if user_signed_in? %>
-                      <div class="like-unlike">
-                        <div class="like_<%= @book.id %>">
-                            <%= render partial: "likes/like", local:{book: @book} %>
+                    <div class="like-share">
+                      <% if user_signed_in? %>
+                        <div class="like-unlike">
+                          <div class="like_<%= @book.id %>">
+                              <%= render partial: "likes/like", local:{book: @book} %>
+                          </div>
                         </div>
+                      <% end %>
+                      <div class="button-shared">
+                        <%= social_share_button_tag(@book.title) %>
                       </div>
-                    <% end %>
-                    <div class="button-shared">
-                      <%= social_share_button_tag(@book.title) %>
                     </div>
                     <div class="description">
-                      <%= @book.description %>
+                      <%= raw @book.description %>
                     </div>
                   </div>
                 </div>
@@ -102,7 +103,7 @@
                     <div class="tg-tab-content tab-content">
                       <div role="tabpanel" class="tg-tab-pane tab-pane" id="description">
                         <div class="tg-description">
-                          <h6><%= @book.description %></h6>
+                          <h6><%= raw @book.description %></h6>
                           <%= raw @book.content %>
                         </div>
                       </div>

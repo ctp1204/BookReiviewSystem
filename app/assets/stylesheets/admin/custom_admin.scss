@@ -31,7 +31,7 @@ body {
     width: 100%;
     float: left;
     position: relative;
-    margin: -40px 0 0;
+    margin: 20px 0 0;
 }
 .text-center {
   text-align:center;
@@ -683,7 +683,7 @@ i.fa.fa-circle {
 }
 .info-admin p {
     font-size: 14px;
-    line-height: 0px;
+    line-height: 18px;
     color: #ccc;
     /* padding-top: 18px; */
 }
@@ -701,7 +701,7 @@ nav.navbar.navbar-default.navbar-cls-top {
 }
 .block-main .block-right{
   width: 80%;
-  min-height: 85vh;
+  min-height: 90vh;
   padding: 10px;
 }
 

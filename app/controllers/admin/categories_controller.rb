@@ -6,7 +6,7 @@ class Admin::CategoriesController < Admin::BaseController
   def index
     @search_categories = Category.ransack params[:q]
     @categories = @search_categories.result.sort_by_name.paginate page: params[:page],
-     per_page: Settings.per_page
+     per_page: 10
   end
 
   def new

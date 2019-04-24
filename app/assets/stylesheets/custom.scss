@@ -288,14 +288,21 @@ label.form-control-label.text.required {
 .like-unlike {
     width: 9%;
     border: 1px solid #ccc;
-    padding: 5px 5px 5px 5px;
+    padding: 3px;
     background-color: rgba(0, 100, 0, 0.12);
     border-radius: 3px;
     float: left;
-    margin: 23px 5px 0px -98px;
+    margin: -6px 0px;
 }
-.button-shared {
-  margin: 32px 0px 0px 0px;
+.social-share-button {
+    margin: 0px 55px;
+}
+.description p {
+  font-size: 12px;
+  padding: 2px;
+}
+.like-share {
+    margin: 12px 0px 10px 0px;
 }
 .average_review-rating {
     float: left;
@@ -313,7 +320,8 @@ a.btn.btn-danger {
 }
 .info_book {
     width: auto;
-    height: 195px;
+    max-height: 225px;
+    min-height: 195px;
 }
 .view {
     width: 500px;
@@ -384,9 +392,7 @@ input#q_title_cont {
     width: 28%;
     float: left;
 }
-.description {
-    padding: 10px 0px;
-}
+
 .tg-searchbox-search {
     margin: 15px 0px 0px 65px;
     width: 100%;
@@ -410,8 +416,9 @@ li.logo-current img {
     margin: 0px;
 }
 ul.users li img {
-    width: 45px;
-    border-radius: 20px;
+    width: 50px;
+    border-radius: 65%;
+    height: 50px;
 }
 ul.users li {
     list-style: none;
@@ -591,4 +598,20 @@ ol li::before {
 }
 .tg-widgetcontent ol {
     margin: 5px 20px 0px 20px;
+}
+.tg-description p {
+    line-height: 30px;
+}
+img.bookslide {
+    height: 179px;
+    display: block;
+    width: 100%;
+}
+article.tg-post-1:hover {
+    border: 1px solid #cccccc42;
+    padding: 4px;
+    box-shadow: 2px 2px #623a3a40;
+}
+article.tg-post-1 {
+    padding: 5px;
 }

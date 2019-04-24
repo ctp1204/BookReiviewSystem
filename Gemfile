@@ -15,6 +15,7 @@ gem "cancancan"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "chartkick"
+gem 'ckeditor', '4.1.3'
 gem "social-share-button"
 gem "devise"
 gem "delayed_job_active_record"

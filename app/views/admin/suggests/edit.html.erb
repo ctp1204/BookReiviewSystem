@@ -20,8 +20,8 @@
                 <%= f.hidden_field :suggest_id,value: @suggest.id %>
                 <%= f.file_field :book_img %>
                 <%= f.input :title, input_html: { value: @suggest.title }%>
-                <%= f.input :content %>
-                <%= f.input :description %>
+                <%= f.input :description, as: :ckeditor %>
+                <%= f.input :content, as: :ckeditor %>
                 <%= f.input :author, input_html: { value: @suggest.author } %>
                 <%= f.input :publisher %>
                 <%= f.input :rate_points %>

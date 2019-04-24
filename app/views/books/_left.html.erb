@@ -18,7 +18,7 @@
             <li class="<%= 'active' if params[:category] == category.id %>">
               <span>
                 <%= link_to category.name, books_find_path(category: category.id), class: "link" %>
-              </span><em>28245</em>
+              </span>
             </li>
           <% end %>
         <% end %>
@@ -43,6 +43,7 @@
                 <div class="tg-posttitle">
                   <h3><a href="/books/<%= book_new.id %>?category=<%= book_new.category.id %>"><%= book_new.title %></a></h3>
                 </div>
+                <span class="tg-bookwriter">Author:<%= book_new.author %></span>
                 <span class="tg-bookwriter">By:<%= book_new.publisher %></span>
               </div>
             </article>
